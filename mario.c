@@ -12,7 +12,7 @@ int n;
     
     for (int i=0; i<n; i++) // printing new line
     {
-        for (int j = 0; j<n-i; j++) //printing the spaces 
+        for (int j = 0; j<n-(i+1); j++) //printing the spaces 
         {
             printf(" ");
         }
