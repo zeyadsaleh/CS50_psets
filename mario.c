@@ -11,7 +11,7 @@ int n; //prompting the user for input
     while (n<1 || n>8);
     for (int i =0; i<n; i++) // for new line
     {
-        for(int j = 0; j<n-i; j++) // for the spaces of the left pyramid
+        for(int j = 0; j<n-(i+1); j++) // for the spaces of the left pyramid
         {
             printf(" ");
         }
@@ -19,10 +19,7 @@ int n; //prompting the user for input
         {
             printf("#");
         }
-        for(int y =0; y<2; y++) // for the two spaces in between
-        {
-            printf(" ");
-        }
+        printf("  ");
         for(int z=0; z<i+1; z++) // for the hashes of the right pyramid
         {
             printf("#");
