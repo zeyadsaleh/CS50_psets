@@ -1,5 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <math.h>
 
 int main(void)
 {
@@ -33,41 +34,62 @@ int main(void)
     
     while (cc_number1 != 0) // count the number of digits 
     {
-       cc_number1 = cc_number1 / 10;
-       num_of_digits++;
+        cc_number1 = cc_number1 / 10;
+        num_of_digits++;
     }
     
     while (cc_number2 >= 100) // find the first 2 digits
     {
-       cc_number2 = cc_number2 / 10;
-       first_2_digits = cc_number2;
+        cc_number2 = cc_number2 / 10;
+        first_2_digits = cc_number2;
     }
     
     while (cc_number3 >= 10) // find the first digit
     {
-       cc_number3 = cc_number3 / 10;
-       first_digit = cc_number3;
-    }
-
-    if (sum % 10 == 0) //check if the card is valid or invalid
-    {
-        if (num_of_digits == 15 && (first_2_digits == 34 || first_2_digits == 37)) //find the      company
-        {
-            printf("AMEX\n");
-        }
-            else if (num_of_digits == 16 && (first_2_digits == 51 || first_2_digits == 52 ||        first_2_digits == 53 || first_2_digits == 54 || first_2_digits == 55))
-        {
-            printf("MasterCard\n");
-        }
-        else if ((num_of_digits == 13 || num_of_digits == 16) && first_digit == 4)
-        {
-            printf("VISA\n");
-        }
+        cc_number3 = cc_number3 / 10;
+        first_digit = cc_number3;
     }
     
-    else
-    {
-        printf("INVALID\n");
-    }
+    switch (num_of_digits)
+    {      
+        case 15:
+            if (sum % 10 == 0 && (first_2_digits == 34 || first_2_digits == 37)) 
+            {
+                printf("AMEX\n");
+            }
+            else
+            {
+                printf("INVALID\n"); 
+            } 
+            break;
+        case 16:    
+            if (sum % 10 == 0 && (first_2_digits == 51 || first_2_digits == 52 || first_2_digits == 53 || first_2_digits == 54 || first_2_digits == 55))
+            {
+                printf("MASTERCARD\n");
+            }
+            else if (sum % 10 == 0 && first_digit == 4)
+            {
+               printf("VISA\n"); 
+            }
+            else
+           {
+               printf("INVALID\n");   
+           }     
+           break;
+       case 13:
+           if (sum % 10 == 0 && first_digit == 4)
+           {
+                printf("VISA\n");
+           }
+           else
+           {
+               printf("INVALID\n");     
+           }
+           break;
+        default:
+            printf("INVALID\n");
+            break;
+    } 
+  
 }
 
