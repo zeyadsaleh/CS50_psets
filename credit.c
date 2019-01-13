@@ -50,7 +50,7 @@ int main(void)
         first_digit = cc_number3;
     }
     
-    switch (num_of_digits)
+    switch (num_of_digits) //checking the card validity and Type
     {      
         case 15:
             if (sum % 10 == 0 && (first_2_digits == 34 || first_2_digits == 37)) 
