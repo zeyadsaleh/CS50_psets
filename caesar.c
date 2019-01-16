@@ -6,7 +6,11 @@
 
 int main(int argc, string argv[]) //get the result from the commandline argument
 {    
-    if (argc == 2)
+    if (argc != 2)   //if the commandline argument is not just 2 words
+    {
+        printf("Usage: ./caesar key\n");        
+    }
+    else
     {
         int key = atoi(argv[1]); //turn key into integer
         if (key != 0)
@@ -30,17 +34,12 @@ int main(int argc, string argv[]) //get the result from the commandline argument
                 {
                     printf("%c", plaintext[i]); // if the plaintext is not alphabetic leave is as it is
                 }
-            }         
+            }
+            printf("\n");
         }
         else //if the key is not integer
         {
             printf("Usage: ./caesar key\n"); 
         }
-        printf("\n");
-    }  
-    else  //if the commandline argument is not just 2 words
-    {
-        printf("Usage: ./caesar key\n");        
-    }
-         
+    }       
 }
