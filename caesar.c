@@ -36,10 +36,11 @@ int main(int argc, string argv[]) //get the result from the commandline argument
         {
             printf("Usage: ./caesar key\n"); 
         }
+        printf("\n");
     }  
-    else if (argc != 2) //if the commandline argument is not just 2 words
+    else  //if the commandline argument is not just 2 words
     {
         printf("Usage: ./caesar key\n");        
     }
-    printf("\n");     
+         
 }
