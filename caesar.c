@@ -8,7 +8,8 @@ int main(int argc, string argv[]) //get the result from the commandline argument
 {    
     if (argc != 2)   //if the commandline argument is not just 2 words
     {
-        printf("Usage: ./caesar key\n");        
+        printf("Usage: ./caesar key\n");
+        return 1;
     }
     else
     {
@@ -41,5 +42,6 @@ int main(int argc, string argv[]) //get the result from the commandline argument
         {
             printf("Usage: ./caesar key\n"); 
         }
-    }       
+    } 
+    return 0;
 }
