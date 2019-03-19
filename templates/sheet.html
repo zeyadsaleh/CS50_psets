@@ -1,27 +1,24 @@
 {% extends "layout.html" %}
 
-{% block body %}
+{% block main %}
     <h1>Sheet</h1>
-    <ul>
-        {% for x in poeple %}
-            <li>
-               <thead>
+        <table class="table">
+              <thead>
                 <tr>
-                  <th scope="col">#</th>
                   <th scope="col">Name</th>
                   <th scope="col">House</th>
                   <th scope="col">Position</th>
                 </tr>
-              </thead>
+                 </thead>
               <tbody>
+        {% for appllicant in appllicants %}
                 <tr>
-                  <th scope="row">{{ x }}</th>
-                  <td>{{ x["name"] }}</td>
-                  <td>{{ x["house"] }}</td>
-                  <td>{{ x["position"] }}</td>
+                  <td>{{ appllicant["name"] }}</td>
+                  <td>{{ appllicant["house"] }}</td>
+                  <td>{{ appllicant["position"] }}</td>
                 </tr>
-                </tbody>
-            </li>
         {% endfor %}
-    </ul>
+         </tbody>
+        </table>
+
 {% endblock %}

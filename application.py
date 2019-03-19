@@ -33,17 +33,15 @@ def get_form():
 def post_form():
     if not request.form.get("name") or not request.form.get("house") or not request.form.get("position"):
         return render_template("error.html")
-    file = open("survey.csv", "a")
-    writer = csv.writer(file)
-    writer.writerow((request.form.get("name"),request.form.get("house"),request.form.get("position")))
-    file.close()
+    with open("survey.csv", "a") as file:
+        writer = csv.DictWriter(file, fieldnames=["name", "house", "position"])
+        writer.writerow({"name": request.form.get("name"), "house": request.form.get("house"), "position": request.form.get("position")})
     return redirect("/sheet")
 
 
 @app.route("/sheet", methods=["GET"])
 def get_sheet():
-    file = open("survey.csv", "r")
-    reader = csv.reader(file)
-    poeple = list(reader)
-    file.close()
-    return render_template("sheet.html", poeple=poeple)
+    with open("survey.csv", "r") as file:
+        reader = csv.DictReader(file)
+        appllicants = list(reader)
+    return render_template("sheet.html", appllicants=appllicants)
