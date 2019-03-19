@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <h1>Sheet</h1>
+        <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">House</th>
+                  <th scope="col">Position</th>
+                </tr>
+                 </thead>
+              <tbody>
+        {% for appllicant in appllicants %}
+                <tr>
+                  <td>{{ appllicant["name"] }}</td>
+                  <td>{{ appllicant["house"] }}</td>
+                  <td>{{ appllicant["position"] }}</td>
+                </tr>
+        {% endfor %}
+         </tbody>
+        </table>
+
+{% endblock %}
